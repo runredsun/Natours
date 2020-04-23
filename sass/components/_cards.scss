@@ -1,0 +1,245 @@
+.card {
+
+  //FUNCTIONALITY
+
+  -webkit-perspective: 93.75rem;
+
+          perspective: 93.75rem;
+  -moz-perspective: 93.75rem;
+  position: relative;
+  height: 33.25rem;
+
+  &__side {
+    height: 33.25rem;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 .9rem 2.5rem rgba($color-black, .15);
+    overflow: hidden;
+
+
+
+
+    &--front {}
+
+    &--back {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+              align-items: center;
+
+      &-1 {
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary-light), to($color-secondary-dark));
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
+
+      &-2 {
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-primary-light), to($color-primary-dark));
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+      }
+
+      &-3 {
+        background-image: -webkit-gradient(linear, left top, right bottom, from($color-tertiary-light), to($color-tertiary-dark));
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+
+  // FRONT-SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 14.375rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary-light), to($color-secondary-dark)),
+        url(../img/nat-5.jpg);
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+        url(../img/nat-5.jpg);
+
+    }
+
+    &--2 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from($color-primary-light), to($color-primary-dark)),
+        url(../img/nat-6.jpg);
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+        url(../img/nat-6.jpg);
+
+    }
+
+    &--3 {}
+
+    background-image: -webkit-gradient(linear, left top, right bottom, from($color-tertiary-light), to($color-tertiary-dark)),
+    url(../img/nat-7.jpg);
+
+    background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+    url(../img/nat-7.jpg);
+  }
+
+  &__heading {
+    font-size: 1.75rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    text-align: right;
+    top: 7.5rem;
+    right: 1.25rem;
+    width: 70%;
+  }
+
+  &__heading-span {
+    padding: 0.625rem .9rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+
+    &--1 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from(rgba($color-secondary-light, .8)), to(rgba($color-secondary-dark, .8)));
+      background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8));
+    }
+
+    &--2 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from(rgba($color-primary-light, .8)), to(rgba($color-primary-dark, .8)));
+      background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8));
+    }
+
+    &--3 {
+      background-image: -webkit-gradient(linear, left top, right bottom, from(rgba($color-tertiary-light, .8)), to(rgba($color-tertiary-dark, .8)));
+      background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .8), rgba($color-tertiary-dark, .8));
+    }
+  }
+
+  &__details {
+    padding: 1.875rem;
+
+    ul {
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 0.9375rem;
+        padding: 0.625rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // BACKSIDE STYLE
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 5rem;
+  }
+
+  &__price-only {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 3.75rem;
+    font-weight: 100;
+  }
+
+  // @include respond(tab-port) {
+        @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+
+    box-shadow: 0 .9rem 2.5rem rgba($color-black, .15);
+    border-radius: 3px;
+
+    height: auto;
+
+    &__details {
+      padding-bottom: 4rem;
+    }
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+
+      &--front {}
+
+      &--back {
+        padding-top: 3rem;
+        -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        margin-top: -3rem;
+        display: -webkit-box;
+        display: flex;
+      }
+    }
+
+    &:hover &__side--front {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    }
+
+
+    // FRONT-SIDE STYLING
+
+  }
+
+  // BACKSIDE STYLE
+  &__cta {
+    position: relative;
+    top: 0;
+    left: 0;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    width: 100%;
+    padding: 2.5rem;
+  }
+
+  &__price-box {
+
+    margin-bottom: 1rem;
+  }
+
+
+
+  &__price-value {
+    font-size: 3rem;
+    font-weight: 100;
+  }
+
+}

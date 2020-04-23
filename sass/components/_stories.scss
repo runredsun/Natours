@@ -1,0 +1,83 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 1.875rem 3.75rem rgba($color-black, .1);
+  background-color: rgba($color-white, .6);
+  border-radius: 3px;
+  padding: 3.75rem;
+  padding-left: calc(3.75rem + 1.875);
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    transform: skew(0);
+    padding: 2.5rem 1rem 1rem 1rem;
+  }
+
+  &__shape {
+    width: 9.375rem;
+    height: 9.375rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-1.875rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+
+    @include respond(tab-port) {
+      transform: skew(0);
+      float: none;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+
+  }
+
+  &__image {
+    height: 100%;
+    transform: translatex(-15%) scale(1.2);
+    transition: all .5s;
+    backface-visibility: hidden;
+
+    @include respond(tab-port) {
+      margin: 0 auto;
+    }
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(tab-port) {
+      transform: skew(0);
+      text-align: center;
+    }
+
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: translatex(-15%) scale(1);
+    filter: blur(3px) brightness(90%);
+  }
+}

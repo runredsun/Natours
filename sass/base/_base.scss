@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+html {
+
+
+  @include respond(tab-land) {
+    font-size: 75%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 75%;
+  }
+
+
+  @include respond(ipad) {
+    font-size: 100%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 120%;
+  }
+
+  ::selection {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+

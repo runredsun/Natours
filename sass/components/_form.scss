@@ -1,0 +1,110 @@
+.form {
+
+
+
+  @include respond(tab-port) {
+    text-align: center;
+  }
+
+
+  &__group:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+
+  &__input {
+    font-size: .8rem;
+    font-family: inherit;
+    color: inherit;
+    padding: .8rem 1.25rem;
+    border-radius: 2px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all .4s;
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-2;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0.625rem 1.25rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: .7rem;
+    margin-left: 1.25rem;
+    display: block;
+    transition: all .8s;
+    transform: translateY(0);
+  }
+
+  &__input:placeholder-shown+&__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-30px);
+
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-group {
+    display: inline-block;
+    width: 49%;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__radio-label {
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2.8rem;
+  }
+
+  &__radio-button {
+    height: 1.875rem;
+    width: 1.875rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.3rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: .8rem;
+      width: .8rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+
+  &__radio-input:checked~&__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
